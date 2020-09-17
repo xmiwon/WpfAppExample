@@ -4,9 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppExample"
+        
+        xmlns:models="clr-namespace:WpfAppExample.Models"
+        xmlns:views="clr-namespace:WpfAppExample.Views"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <DataTemplate x:Name="MessageViewTemplate" DataType="{x:Type models:MessageViewModel}">
+            <views:MessageViewControl DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/> <!-- Det som är kvar -->
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Button x:Name="messageViewButton" Content="Messages" Click="messageViewButton_Click" />
+            <Button x:Name="contactViewButton" Content="Contacts" Click="contactViewButton_Click" />
+        </StackPanel>
+
+        <ContentControl Grid.Column="1" Content="{Binding}"/>
+
 
     </Grid>
+    
+    
+    
+    
+    
 </Window>

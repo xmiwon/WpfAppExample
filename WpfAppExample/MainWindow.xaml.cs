@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppExample.Models;
 
 namespace WpfAppExample
 {
@@ -23,6 +24,16 @@ namespace WpfAppExample
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void messageViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MessageViewModel();
+        }
+
+        private void contactViewButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
